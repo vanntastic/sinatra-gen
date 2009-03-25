@@ -46,6 +46,7 @@ class SinatraAppGenerator < RubiGen::Base
         BASEDIRS.each { |path| m.directory path }
         m.file     'config.yml', 'config.yml'
         m.template 'lib/module.rb.erb', "lib/#{app_name}.rb"
+        m.template 'lib/app_helper.rb.erb', 'lib/app_helper.rb'
         m.template 'test/test_helper.rb.erb', 'test/test_helper.rb'
         m.template "test/test_app_#{test_framework}.rb.erb", "test/test_#{app_name}.rb"
         m.template "views/#{view_framework}_index.erb", "views/index.#{view_framework}"

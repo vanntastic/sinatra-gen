@@ -7,6 +7,7 @@ require 'sinatra'
 <%- end -%>
 <%- unless tiny -%>
 require File.join(File.dirname(__FILE__), 'lib', '<%= app_name %>')
+require File.join(File.dirname(__FILE__), 'lib', 'app_helper')
 
 set :public, 'public'
 set :views,  'views'

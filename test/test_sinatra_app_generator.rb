@@ -176,6 +176,7 @@ class TestSinatraAppGenerator < Test::Unit::TestCase
     assert_generated_file   'Rakefile'
     assert_generated_file   'config.yml'
     assert_generated_module  "lib/#{app_name}"
+    assert_generated_file  "lib/app_helper.rb"
   end
     
   
