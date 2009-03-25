@@ -127,6 +127,9 @@ EOS
       lib
       test
       public
+      public/js
+      public/css
+      public/images
       views
     )
 end

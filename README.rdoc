@@ -65,6 +65,77 @@ It will also generate test skeletons in the test framework of your choosing.
 
 The --tiny option will create no directories. Just an app.rb, a Rakefile, and a config.ru (Rackup file)
 
+== ERB Helpers:
+
+Miss some of the erb helpers from ActionView? I've included some helpers that can help:
+
+- image
+  Creates an img tag, very similar to rails' image_tag.
+  
+    image src, options={}
+  
+  EX: 
+    
+    image 'your_image.jpg', :title => "Your Image"
+    # => <img src='images/your_image.jpg' title='Your Image' />
+    
+- link_css
+  Creates a css link tag for a css file in the public/css directory, very similar to rails' stylesheet_link_tag
+  
+    link_css srcs, options={}
+  
+  EX:
+    
+    # link to a single stylesheet
+    link_css 'app'
+    # => <link rel="stylesheet" href="/css/app.css" type="text/css" media="screen" title="no title" charset="utf-8">
+    # link to multiple stylesheets
+    link_css "app, print"
+    
+- link_js
+  Creates a script tag for a javascript file in the public/js directory, similar to rails' javascript_include_tag
+  
+    link_js srcs, options={}
+    
+  EX:
+  
+    # link to a single js file
+    link_js 'app'
+    # link to multiple js files
+    link_js 'jquery,app'
+
+- link
+  Creates an anchor tag, similar to rails' link_to 
+  
+    link content, options={}
+    
+  EX: 
+  
+    # link to google
+    link "Google", "http://google.com"
+    
+- tag
+  Creates an opening and closing html tag, similar to rails' content_tag
+  
+    tag name, content, options={}
+    
+  EX:
+    
+    # create a header tag
+    tag :h1, "Shizam", :title => "Shizam"
+    # => <h1 title="Shizam">Shizam</h1>
+    
+- single_tag
+  Creates a single closing html tag, like img tags and link tags
+  
+    single_tag name, options
+  
+  EX:
+  
+    # create an img tag
+    single_tag :img, :src => "my_img.jpg"
+    # => <img src="my_img.jpg" />
+
 == ACKNOWLEDGEMENTS:
 
 Big props to the Sinatra developers (http://github.com/bmizerany/sinatra/).
@@ -74,10 +145,13 @@ Also, thanks to Dr. Nic (http://github.com/drnic) for the Rubigen and Newgem lib
 
 To use the --vendor option, git must be installed.
 To run the app without using the vendor option, the sinatra gem must be installed.
+If you want to use the erb helpers, activesupport must be installed.
 
 == INSTALL:
 
-  sudo gem install sintra-gen
+  sudo gem install sinatra-gen
+  #or to install the ones with erb helpers
+  sudo gem install vanntastic-sinatra-gen -s http://gems.github.com
 
 You can also install directly from github:
 

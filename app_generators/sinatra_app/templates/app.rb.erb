@@ -5,6 +5,8 @@ require 'sinatra'
 <%- else -%>
 require 'sinatra'
 <%- end -%>
+require 'activesupport'
+
 <%- unless tiny -%>
 require File.join(File.dirname(__FILE__), 'lib', '<%= app_name %>')
 require File.join(File.dirname(__FILE__), 'lib', 'app_helper')
