@@ -42,11 +42,10 @@ module AppHelper
       srcs_length = srcs.split(",").length
       content = ""
       if srcs_length == 1
-        content = single_tag(:script, :src => "/js/#{srcs}.js", 
-                             :type => "text/javascript")
+        content = tag(:script,"", :src => "/js/#{srcs}.js", :type => "text/javascript")
       else
         srcs.split(",").each do |src|
-          content << single_tag(:script, :src => "/js/#{src.strip}.js", 
+          content << tag(:script,"", :src => "/js/#{src.strip}.js", 
                                 :type => "text/javascript")
           content << "\n"
         end
