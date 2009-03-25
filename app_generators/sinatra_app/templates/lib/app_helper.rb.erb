@@ -24,7 +24,7 @@ module AppHelper
         content = single_tag(:link, options)
       else
         srcs.split(",").each do |src|
-          options[:href] = "/css/#{src}.css"
+          options[:href] = "/css/#{src.strip}.css"
           content << single_tag(:link, options)
           content << "\n"
         end
@@ -46,7 +46,7 @@ module AppHelper
                              :type => "text/javascript")
       else
         srcs.split(",").each do |src|
-          content << single_tag(:script, :src => "/js/#{src}.js", 
+          content << single_tag(:script, :src => "/js/#{src.strip}.js", 
                                 :type => "text/javascript")
           content << "\n"
         end
